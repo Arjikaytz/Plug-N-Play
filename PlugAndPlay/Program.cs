@@ -9,6 +9,7 @@
         {
             Console.WriteLine("-_-_-_-_-_-_-_-_- Plug and Play -_-_-_-_-_-_-_-_-_-_-_-");
             Console.WriteLine(" ");
+
             DisplayInstrumentOptions();
 
             int guitarInstrument = GetUserInput();
@@ -19,9 +20,11 @@
 
         static void DisplayInstrumentOptions()
         {
-            Console.WriteLine("Which Instrument Do You Desire To Play?");
+
+            Console.WriteLine("What kind of Instrument You Desired To Play?");
             Console.WriteLine("1: Electric Guitar");
             Console.WriteLine("2: Acoustic Guitar");
+
         }
 
         static int GetUserInput()
@@ -43,10 +46,13 @@
                     DisplayGuitarOptions(acousticGuitars);
                     break;
                 default:
-                    Console.WriteLine("What?!");
+                    TryAgainSystem();
                     break;
+
             }
         }
+
+
 
         static void DisplayGuitarOptions(string[] guitars)
         {
@@ -56,5 +62,32 @@
                 Console.WriteLine(guitar);
             }
         }
+
+        static void TryAgainSystem()
+        {
+            String input = "Y";
+
+            while (input == "Y")
+            {
+                string name;
+                Console.WriteLine("Invalid Input. Try Again.");
+                name = Console.ReadLine();
+                DisplayInstrumentOptions();
+
+                Console.WriteLine("Would you like to enter another name? (Y/N)");
+                input = Console.ReadLine();
+
+
+
+
+                if (input == "N")
+                {
+                    Console.WriteLine("Goodbye!");
+                    break;
+
+                }
+        }
+
+        
     }
 }

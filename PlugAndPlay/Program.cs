@@ -2,93 +2,84 @@
 {
     internal class Program
     {
-        static string[] electricGuitars = { "1. Fender Stratocaster", "2. Fender Jaguar", "3. Fender Mustang" };
-        static string[] acousticGuitars = { "1. Martin D-18E", "2. Harmony Stella", "3. 1960s Epiphone" };
-
         static void Main(string[] args)
         {
-            Console.WriteLine("-_-_-_-_-_-_-_-_- Plug and Play -_-_-_-_-_-_-_-_-_-_-_-");
-            Console.WriteLine(" ");
+            string[] electricGuitars = new string[] { "[1] Fender Stratocaster", "[2] Fender Jaguar", "[3] Fender Mustang" };
+            string[] acousticGuitars = new string[] { "[4] Martin D-18E", "[5] Harmony Stella", "[6] 1960s Epiphone" };
+            string[] pedals = new string[] { "[7] Overdrive", "[8] Delay", "[9] Reverb" };
+            string[] amplifiers = new string[] { "[10] Fender", "[11] Orange", "[12] Marshall" };
 
-            DisplayInstrumentOptions();
+            DisplayItems("Electric Guitar", electricGuitars);
+            DisplayItems("Acoustic Guitar", acousticGuitars);
+            DisplayItems("Pedals", pedals);
+            DisplayItems("Amplifiers", amplifiers);
 
-            int guitarInstrument = GetUserInput();
-            ProcessInstrumentChoice(guitarInstrument);
+            int guitar = GetSelection("Pick Guitar: ");
 
-            Console.ReadKey();
+            string guitarChoice = GetGuitarChoice(guitar);
+
+            int pedal = GetSelection("Pick Pedal: ");
+
+            string pedalChoice = GetPedalChoice(pedal);
+
+            int amplifier = GetSelection("Pick Amplifier: ");
+
+            string amplifierChoice = GetAmplifierChoice(amplifier);
+
+            Console.WriteLine($"You picked {guitarChoice}, {pedalChoice}, {amplifierChoice}");
         }
 
-        static void DisplayInstrumentOptions()
+        static void DisplayItems(string category, string[] items)
         {
-
-            Console.WriteLine("What kind of Instrument You Desired To Play?");
-            Console.WriteLine("1: Electric Guitar");
-            Console.WriteLine("2: Acoustic Guitar");
-
-        }
-
-        static int GetUserInput()
-        {
-            Console.Write("Enter your choice: ");
-            return Convert.ToInt16(Console.ReadLine());
-        }
-
-        static void ProcessInstrumentChoice(int choice)
-        {
-            switch (choice)
+            Console.WriteLine($"[{category}]");
+            foreach (string item in items)
             {
-                case 1:
-                    Console.WriteLine("Electric Guitar is Your Choice.");
-                    DisplayGuitarOptions(electricGuitars);
-                    break;
-                case 2:
-                    Console.WriteLine("Acoustic Guitar is Your Choice.");
-                    DisplayGuitarOptions(acousticGuitars);
-                    break;
-                default:
-                    TryAgainSystem();
-                    break;
-
+                Console.WriteLine(item);
             }
+            Console.WriteLine("---------------------------");
         }
 
-
-
-        static void DisplayGuitarOptions(string[] guitars)
+        static int GetSelection(string prompt)
         {
-            Console.WriteLine("Choose:");
-            foreach (var guitar in guitars)
-            {
-                Console.WriteLine(guitar);
-            }
+            Console.Write(prompt);
+            return Convert.ToInt32(Console.ReadLine());
         }
 
-        static void TryAgainSystem()
+        static string GetGuitarChoice(int guitar)
         {
-            String input = "Y";
-
-            while (input == "Y")
+            return guitar switch
             {
-                string name;
-                Console.WriteLine("Invalid Input. Try Again.");
-                name = Console.ReadLine();
-                DisplayInstrumentOptions();
+                1 => "Fender Stratocaster",
+                2 => "Fender Jaguar",
+                3 => "Fender Mustang",
+                4 => "Martin D-18E",
+                5 => "Harmony Stella",
+                6 => "1960s Epiphone",
+                _ => "Invalid guitar"
+            };
+        }
 
-                Console.WriteLine("Would you like to enter another name? (Y/N)");
-                input = Console.ReadLine();
+        static string GetPedalChoice(int pedal)
+        {
+            return pedal switch
+            {
+                7 => "Overdrive",
+                8 => "Delay",
+                9 => "Reverb",
+                _ => "Invalid pedal"
+            };
+        }
 
-
-
-
-                if (input == "N")
-                {
-                    Console.WriteLine("Goodbye!");
-                    break;
-
-                }
-            }
-
-
+        static string GetAmplifierChoice(int amplifier)
+        {
+            return amplifier switch
+            {
+                10 => "Fender",
+                11 => "Orange",
+                12 => "Marshall",
+                _ => "Invalid amplifier"
+            };
         }
     }
+
 }

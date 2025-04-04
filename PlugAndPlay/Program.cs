@@ -1,4 +1,6 @@
-﻿namespace PlugAndPlay
+﻿using PLUGNPLAYBusinessDataLogic;
+
+namespace PlugAndPlay
 {
     internal class Program
     {
@@ -16,17 +18,17 @@
 
             int guitar = GetSelection("Pick Guitar: ");
 
-            string guitarChoice = GetGuitarChoice(guitar);
+            string guitarChoice = PLUGNPLAYProcess.GetGuitarChoice(guitar); 
 
             int pedal = GetSelection("Pick Pedal: ");
 
-            string pedalChoice = GetPedalChoice(pedal);
+            string pedalChoice = PLUGNPLAYProcess.GetPedalChoice(pedal);
 
             int amplifier = GetSelection("Pick Amplifier: ");
 
-            string amplifierChoice = GetAmplifierChoice(amplifier);
+            string amplifierChoice = PLUGNPLAYProcess.GetAmplifierChoice(amplifier);
 
-            Console.WriteLine($"You picked {guitarChoice}, {pedalChoice}, {amplifierChoice}");
+            Console.WriteLine("You plugged "+ guitarChoice+ " into " +pedalChoice+" to "+amplifierChoice);
         }
 
         static void DisplayItems(string category, string[] items)
@@ -39,46 +41,10 @@
             Console.WriteLine("---------------------------");
         }
 
-        static int GetSelection(string prompt)
+        static int GetSelection(string prompt) 
         {
             Console.Write(prompt);
             return Convert.ToInt32(Console.ReadLine());
-        }
-
-        static string GetGuitarChoice(int guitar)
-        {
-            return guitar switch
-            {
-                1 => "Fender Stratocaster",
-                2 => "Fender Jaguar",
-                3 => "Fender Mustang",
-                4 => "Martin D-18E",
-                5 => "Harmony Stella",
-                6 => "1960s Epiphone",
-                _ => "Invalid guitar"
-            };
-        }
-
-        static string GetPedalChoice(int pedal)
-        {
-            return pedal switch
-            {
-                7 => "Overdrive",
-                8 => "Delay",
-                9 => "Reverb",
-                _ => "Invalid pedal"
-            };
-        }
-
-        static string GetAmplifierChoice(int amplifier)
-        {
-            return amplifier switch
-            {
-                10 => "Fender",
-                11 => "Orange",
-                12 => "Marshall",
-                _ => "Invalid amplifier"
-            };
         }
     }
 

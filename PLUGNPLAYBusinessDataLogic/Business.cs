@@ -1,30 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-
-namespace PLUGNPLAYBusinessDataLogic
+﻿namespace PLUGNPLAYBusinessDataLogic
 {
-    public class PLUGNPLAYProcess
+    public static class PLUGNPLAYProcess
     {
-        static void DisplayItems(string category, string[] items)
-        {
-            Console.WriteLine($"[{category}]");
-            foreach (string item in items)
-            {
-                Console.WriteLine(item);
-            }
-            Console.WriteLine("---------------------------");
-        }
-
-        static int GetSelection(string prompt)
-        {
-            Console.Write(prompt);
-            return Convert.ToInt32(Console.ReadLine());
-        }
-
         public static string GetGuitarChoice(int guitar)
         {
             return guitar switch
@@ -62,3 +39,4 @@ namespace PLUGNPLAYBusinessDataLogic
         }
     }
 }
+

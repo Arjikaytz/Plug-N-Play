@@ -8,7 +8,7 @@ namespace PlugAndPlay
 {
     class Program
     {
-        static IGearRepository repo = new JsonFileRepository(); 
+        static DBGearRepository repo = new DBGearRepository(); 
         static void Main(string[] args)
         {
             while (true)

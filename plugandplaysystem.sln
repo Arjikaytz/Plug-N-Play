@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlugNPlayForm", "PlugNPlayForm\PlugNPlayForm.csproj", "{83C722C6-B626-AF77-6C5A-065D4C870E10}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlugNPlayAPI", "PlugNPlayAPI\PlugNPlayAPI.csproj", "{F787FBDD-39B1-47DA-968C-9CD780405561}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{83C722C6-B626-AF77-6C5A-065D4C870E10}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{83C722C6-B626-AF77-6C5A-065D4C870E10}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{83C722C6-B626-AF77-6C5A-065D4C870E10}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F787FBDD-39B1-47DA-968C-9CD780405561}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F787FBDD-39B1-47DA-968C-9CD780405561}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F787FBDD-39B1-47DA-968C-9CD780405561}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F787FBDD-39B1-47DA-968C-9CD780405561}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

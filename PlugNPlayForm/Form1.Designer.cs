@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             lblWelcome = new Label();
             btnSearch = new Button();
             btnAdd = new Button();
@@ -50,20 +51,23 @@
             // 
             lblWelcome.AutoSize = true;
             lblWelcome.BackColor = Color.Transparent;
-            lblWelcome.Font = new Font("Swis721 Blk BT", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblWelcome.Location = new Point(303, 34);
+            lblWelcome.Font = new Font("Snap ITC", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblWelcome.ForeColor = SystemColors.HighlightText;
+            lblWelcome.Location = new Point(324, 24);
             lblWelcome.Name = "lblWelcome";
-            lblWelcome.Size = new Size(524, 34);
+            lblWelcome.Size = new Size(488, 30);
             lblWelcome.TabIndex = 0;
             lblWelcome.Text = "PLUG AND PLAY GEAR MANAGER";
+            lblWelcome.TextAlign = ContentAlignment.BottomRight;
             // 
             // btnSearch
             // 
-            btnSearch.BackColor = SystemColors.GradientInactiveCaption;
+            btnSearch.AccessibleRole = AccessibleRole.None;
+            btnSearch.BackColor = SystemColors.ButtonFace;
             btnSearch.Font = new Font("Swis721 Blk BT", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnSearch.Location = new Point(971, 24);
+            btnSearch.Location = new Point(1013, 12);
             btnSearch.Name = "btnSearch";
-            btnSearch.Size = new Size(169, 44);
+            btnSearch.Size = new Size(127, 25);
             btnSearch.TabIndex = 2;
             btnSearch.Text = "SEARCH ID:";
             btnSearch.UseVisualStyleBackColor = false;
@@ -71,7 +75,7 @@
             // 
             // btnAdd
             // 
-            btnAdd.BackColor = SystemColors.GradientInactiveCaption;
+            btnAdd.BackColor = SystemColors.GrayText;
             btnAdd.Font = new Font("Swis721 Blk BT", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnAdd.Location = new Point(738, 416);
             btnAdd.Name = "btnAdd";
@@ -83,9 +87,9 @@
             // 
             // btnEdit
             // 
-            btnEdit.BackColor = SystemColors.GradientInactiveCaption;
+            btnEdit.BackColor = SystemColors.ButtonFace;
             btnEdit.Font = new Font("Swis721 Blk BT", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnEdit.Location = new Point(367, 145);
+            btnEdit.Location = new Point(244, 149);
             btnEdit.Name = "btnEdit";
             btnEdit.Size = new Size(169, 44);
             btnEdit.TabIndex = 4;
@@ -95,9 +99,9 @@
             // 
             // btnDelete
             // 
-            btnDelete.BackColor = SystemColors.GradientInactiveCaption;
+            btnDelete.BackColor = SystemColors.ButtonFace;
             btnDelete.Font = new Font("Swis721 Blk BT", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnDelete.Location = new Point(144, 145);
+            btnDelete.Location = new Point(69, 149);
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new Size(169, 44);
             btnDelete.TabIndex = 5;
@@ -107,18 +111,19 @@
             // 
             // btnExit
             // 
-            btnExit.BackColor = SystemColors.GradientInactiveCaption;
+            btnExit.BackColor = Color.Red;
             btnExit.Font = new Font("Swis721 Blk BT", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnExit.Location = new Point(89, 32);
+            btnExit.Location = new Point(3, 3);
             btnExit.Name = "btnExit";
-            btnExit.Size = new Size(169, 44);
+            btnExit.Size = new Size(102, 34);
             btnExit.TabIndex = 6;
             btnExit.Text = "EXIT";
             btnExit.UseVisualStyleBackColor = false;
             // 
             // tbSearch
             // 
-            tbSearch.Location = new Point(844, 34);
+            tbSearch.ForeColor = Color.Transparent;
+            tbSearch.Location = new Point(886, 12);
             tbSearch.Name = "tbSearch";
             tbSearch.Size = new Size(121, 27);
             tbSearch.TabIndex = 7;
@@ -126,19 +131,21 @@
             // 
             // listBox1
             // 
+            listBox1.BackColor = Color.DimGray;
+            listBox1.BorderStyle = BorderStyle.None;
             listBox1.Font = new Font("Swis721 Blk BT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             listBox1.FormattingEnabled = true;
             listBox1.ItemHeight = 24;
-            listBox1.Location = new Point(144, 205);
+            listBox1.Location = new Point(50, 211);
             listBox1.Name = "listBox1";
-            listBox1.Size = new Size(392, 364);
+            listBox1.Size = new Size(392, 360);
             listBox1.TabIndex = 8;
             listBox1.SelectedIndexChanged += listBox1_SelectedIndexChanged;
             // 
             // lblName
             // 
             lblName.AutoSize = true;
-            lblName.BackColor = Color.White;
+            lblName.BackColor = Color.Gray;
             lblName.Font = new Font("Swis721 Blk BT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblName.Location = new Point(638, 247);
             lblName.Name = "lblName";
@@ -149,7 +156,7 @@
             // 
             // tbName
             // 
-            tbName.BackColor = SystemColors.GradientActiveCaption;
+            tbName.BackColor = SystemColors.ButtonHighlight;
             tbName.Location = new Point(804, 244);
             tbName.Name = "tbName";
             tbName.Size = new Size(217, 27);
@@ -159,7 +166,7 @@
             // lblPick
             // 
             lblPick.AutoSize = true;
-            lblPick.BackColor = Color.White;
+            lblPick.BackColor = Color.Gray;
             lblPick.Font = new Font("Swis721 Blk BT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblPick.Location = new Point(662, 300);
             lblPick.Name = "lblPick";
@@ -170,7 +177,7 @@
             // rbGuitar
             // 
             rbGuitar.AutoSize = true;
-            rbGuitar.BackColor = Color.White;
+            rbGuitar.BackColor = Color.Gray;
             rbGuitar.Font = new Font("Swis721 Blk BT", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             rbGuitar.Location = new Point(804, 303);
             rbGuitar.Name = "rbGuitar";
@@ -184,7 +191,7 @@
             // rbPedal
             // 
             rbPedal.AutoSize = true;
-            rbPedal.BackColor = Color.White;
+            rbPedal.BackColor = Color.Gray;
             rbPedal.Font = new Font("Swis721 Blk BT", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             rbPedal.Location = new Point(804, 331);
             rbPedal.Name = "rbPedal";
@@ -198,7 +205,7 @@
             // rbAmplifier
             // 
             rbAmplifier.AutoSize = true;
-            rbAmplifier.BackColor = Color.White;
+            rbAmplifier.BackColor = Color.Gray;
             rbAmplifier.Font = new Font("Swis721 Blk BT", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             rbAmplifier.Location = new Point(804, 359);
             rbAmplifier.Name = "rbAmplifier";
@@ -211,10 +218,10 @@
             // 
             // pictureBox1
             // 
-            pictureBox1.BackColor = Color.White;
-            pictureBox1.Location = new Point(611, 205);
+            pictureBox1.BackColor = Color.Gray;
+            pictureBox1.Location = new Point(579, 211);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(442, 364);
+            pictureBox1.Size = new Size(486, 360);
             pictureBox1.TabIndex = 15;
             pictureBox1.TabStop = false;
             // 
@@ -223,6 +230,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(1152, 669);
             Controls.Add(rbAmplifier);
             Controls.Add(rbPedal);

@@ -1,0 +1,6 @@
+@PlugNPlayAPI_HostAddress = http://localhost:5178
+
+GET {{PlugNPlayAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

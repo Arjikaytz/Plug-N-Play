@@ -17,7 +17,7 @@
 
             public override string ToString()
             {
-                // Adjust spacing for clean alignment (optional)
+               
                 return $"{Id,-3} | {Name,-20} | {Type}";
             }
         }

@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PlugAndPlay.Business;
 using PlugAndPlay.Common;
-using PlugAndPlay.Data; // Assuming repository implementations are here
+using PlugAndPlay.Data; 
 using System.Collections.Generic;
 
 namespace PlugAndPlay.API.Controllers
@@ -14,7 +14,7 @@ namespace PlugAndPlay.API.Controllers
 
         public GearController()
         {
-            // You can swap DBGearRepository with JsonGearRepository, InMemoryGearRepository, etc.
+           
             IGearRepository repo = new DBGearRepository();
             _manager = new RigManager(repo);
         }

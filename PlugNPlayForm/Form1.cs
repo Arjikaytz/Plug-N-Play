@@ -1,17 +1,17 @@
-using PlugAndPlay.Common;
+﻿using PlugAndPlay.Common;
 using PlugAndPlay.Data;
+using PlugAndPlay.Business;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.Menu;
-using System.Xml.Linq;
 
 namespace PlugNPlayForm
 {
     public partial class Form1 : Form
     {
         private readonly IGearRepository repo = new DBGearRepository();
+        EmailService emailService = new EmailService(); // for sending email
 
         public Form1()
         {
@@ -61,6 +61,20 @@ namespace PlugNPlayForm
             repo.Add(new GearItem(0, name, type));
             RefreshList();
             MessageBox.Show("Gear added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            // ✅ Send email automatically after adding gear
+            MessageEmail message = new MessageEmail(
+                "from@example.com",
+                "to@example.com",
+                "New Gear Added",
+                $"A new gear item '{name}' ({type}) has been added to the system."
+            );
+
+            bool sent = emailService.SendMail(message);
+            if (sent)
+                MessageBox.Show("Notification email sent successfully!");
+            else
+                MessageBox.Show("Failed to send email notification.");
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
@@ -81,6 +95,7 @@ namespace PlugNPlayForm
 
             repo.Update(new GearItem(selected.Id, name, type));
             RefreshList();
+            MessageBox.Show("Gear updated successfully!");
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -93,6 +108,7 @@ namespace PlugNPlayForm
 
             repo.Delete(selected.Id);
             RefreshList();
+            MessageBox.Show("Gear deleted successfully!");
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -119,24 +135,29 @@ namespace PlugNPlayForm
             rbAmplifier.Checked = type == "Amplifier";
         }
 
-        private void tbSearch_TextChanged(object sender, EventArgs e)
-        {
-            // Optional: implement live-filter
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            // If `textBox1` is unused, consider removing it.
-        }
-
+        private void tbSearch_TextChanged(object sender, EventArgs e) { }
+        private void textBox1_TextChanged(object sender, EventArgs e) { }
         private void rbGuitar_CheckedChanged(object sender, EventArgs e) { }
         private void rbPedal_CheckedChanged(object sender, EventArgs e) { }
         private void rbAmplifier_CheckedChanged(object sender, EventArgs e) { }
+        private void lblName_Click(object sender, EventArgs e) { }
 
-        private void lblName_Click(object sender, EventArgs e)
+        // ✅ New button: Send Email manually
+        private void btnSendEmail_Click(object sender, EventArgs e)
         {
+            MessageEmail message = new MessageEmail(
+                "from@example.com",
+                "to@example.com",
+                "Manual Email Test",
+                "This is a manual email test from Plug & Play Gear Manager."
+            );
 
+            bool sent = emailService.SendMail(message);
+
+            if (sent)
+                MessageBox.Show("Email sent successfully!");
+            else
+                MessageBox.Show("Failed to send email.");
         }
     }
 }
-

@@ -44,6 +44,7 @@
             rbPedal = new RadioButton();
             rbAmplifier = new RadioButton();
             pictureBox1 = new PictureBox();
+            btnSendEmail = new Button(); // ✅ New Send Email button
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -84,6 +85,18 @@
             btnAdd.Text = "ADD GEAR";
             btnAdd.UseVisualStyleBackColor = false;
             btnAdd.Click += btnAdd_Click;
+            // 
+            // btnSendEmail
+            // 
+            btnSendEmail.BackColor = Color.LightGreen;
+            btnSendEmail.Font = new Font("Swis721 Blk BT", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnSendEmail.Location = new Point(738, 470);
+            btnSendEmail.Name = "btnSendEmail";
+            btnSendEmail.Size = new Size(169, 44);
+            btnSendEmail.TabIndex = 16;
+            btnSendEmail.Text = "SEND EMAIL";
+            btnSendEmail.UseVisualStyleBackColor = false;
+            btnSendEmail.Click += btnSendEmail_Click;
             // 
             // btnEdit
             // 
@@ -232,6 +245,7 @@
             BackColor = SystemColors.ActiveCaption;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(1152, 669);
+            Controls.Add(btnSendEmail); // ✅ added Send Email button
             Controls.Add(rbAmplifier);
             Controls.Add(rbPedal);
             Controls.Add(rbGuitar);
@@ -272,5 +286,6 @@
         private RadioButton rbPedal;
         private RadioButton rbAmplifier;
         private PictureBox pictureBox1;
+        private Button btnSendEmail; // ✅ Send Email button declaration
     }
 }

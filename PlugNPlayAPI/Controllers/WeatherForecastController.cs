@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 
 namespace PlugNPlayAPI.Controllers;
 
@@ -29,4 +29,5 @@ public class WeatherForecastController : ControllerBase
         })
         .ToArray();
     }
+
 }

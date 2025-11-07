@@ -1,3 +1,5 @@
+using PlugAndPlay.Business;
+using PlugAndPlay.Common;
 
 namespace PlugNPlayAPI
 {
@@ -8,9 +10,17 @@ namespace PlugNPlayAPI
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
-
             builder.Services.AddControllers();
-            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
+            // Load MailSettings from appsettings.json
+            builder.Services.Configure<MailSettings>(
+                builder.Configuration.GetSection("MailSettings")
+            );
+
+            // Register Mail Service
+            builder.Services.AddTransient<serviceMail>();
+
+            // Swagger/OpenAPI
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
@@ -26,7 +36,6 @@ namespace PlugNPlayAPI
             app.UseHttpsRedirection();
 
             app.UseAuthorization();
-
 
             app.MapControllers();
 
